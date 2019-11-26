@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
     "esModuleInterop": true,
     "target": "es6",
     "noImplicitAny": true,
@@ -9,12 +9,28 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-        "*": [
-            "node_modules/*"
-        ]
-    }
+      "*": [
+        "node_modules/*"
+      ]
+    },
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": [
-    "src/**/*"
+    "src/**/**/*"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

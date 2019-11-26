@@ -1,15 +1,20 @@
 import express from "express";
+import next from 'next';
 
-const app = express();
-const port = 8080; // default port to listen
+const PORT = parseInt(process.env.PORT, 10) || 3000;
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-// define a route handler for the default home page
-app.get( "/", ( req, res ) => {
-  res.send( "Hello world!" );
-} );
+app.prepare().then(() => {
+  const server = express();
 
-// start the Express server
-app.listen( port, () => {
-  // tslint:disable-next-line:no-console
-  console.log( `server started at http://localhost:${ port }` );
-} );
+  server.get('*', (req, res) => {
+    return handle(req, res);
+  })
+
+  server.listen(PORT, err => {
+    if (err) throw err;
+    console.log( `server started at http://localhost:${PORT}` );
+  })
+})

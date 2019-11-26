@@ -5,7 +5,27 @@
   ],
   "jsRules": {},
   "rules": {
-      "trailing-comma": [ false ]
+      "trailing-comma": [ false ],
+      "quotemark": [false, "double"],
+      "no-console": [false,
+        "debug",
+        "info",
+        "time",
+        "timeEnd",
+        "trace"
+      ],
+      "semicolon": false,
+      "curly": false,
+      "arrow-parens": false,
+      "eofline": false,
+      "no-reference-import": false,
+      "max-line-length": [false, 140],
+      "interface-name": false,
+      "ban-types": [false, ["Object", "Use {} instead."], ["String"]],
+      "no-namespace": false,
+      "ordered-imports": false
   },
   "rulesDirectory": []
 }
+
+// https://github.com/vvakame/typescript-project-sample/blob/master/tslint.json
